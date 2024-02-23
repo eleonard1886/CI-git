@@ -1,0 +1,5 @@
+name: hola-mundo
+on: [push]
+jobs:
+    hola-mundo: #nombre del job
+        runs-on: ubuntu-latest #Maquina en la que correrá
