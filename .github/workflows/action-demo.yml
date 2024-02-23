@@ -4,8 +4,8 @@ jobs: #Definición de los jobs
   hola-mundo: #Nombre del job
     runs-on: ubuntu-latest #Maquina en la que correrá
     steps: #Lista de steps del job hola-mundo
-    - name: Public IP 
-      id: ip
-      uses: haythem/public-ip@v1.3
-    - name : hola mundo 
-      run : echo ! Hola mundo desde ${{steps.ip.outputs.ipv4}}!
+    - name: Public IP #Nombre del step
+      id: ip # identificador del step
+      uses: haythem/public-ip@v1.3 #accion a usar
+    - name : hola mundo #Nombre del segundo paso 
+      run : echo ! Hola mundo desde ${{steps.ip.outputs.ipv4}}! #bash con impresion
