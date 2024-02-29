@@ -49,12 +49,44 @@ jobs:
 ## ¿Cómo lanzar 'workflows' de forma manual con 'workflow dispatch'?
 El 'workflow dispatch' te permite lanzar un 'workflow' de forma manual y agregar los parámetros que desees. Puedes crear 'inputs', y estos pueden ser de diferentes tipos, como una elección, un boolean, o un string.
 
+    on: 
+	workflow_dispatch:
+		inputs:
+			alerta:
+				description : 'Nivel'
+				required : true
+				default : medio
+				type : choice
+				option :
+				- bajo
+				- medio
+				- alto
+
+			tags:
+				description : 'Opcional'
+				required : false
+				****type : boolean
+
+			enviroment:
+				description : 'Objetivo'
+				required : true
+				type : string
 
 
 ## ¿Cómo programar eventos con el 'schedule'?
 Finalmente, el 'trigger' 'schedule' te permite programar eventos que ocurran a intervalos regulares. Puedes especificar los minutos, la hora, el día del mes, el mes, y el día de la semana.
 
-## ¿Cómo puedes practicar la creación de 'workflows' basados en 'triggers'?
-Para practicar la creación de 'workflows', te recomiendo que crees un nuevo archivo 'workflow' que use al menos tres de los 'triggers' que acabamos de explicar.
+    on:
+	schedule:
+		- cron : '30 5,17 * * *'
+
+    [Minuto, Hora, Dia del mes, Mes, Día de la semana]
+    Minuto (0 - 59)
+    Hora (0 - 23) 
+    Día del mes (1 - 31) 
+    Mes (1 - 12 o JAN - DEC)
+    Día de la semana ( 0 - 6 o SUN - SAT)    
+
+
 
 
